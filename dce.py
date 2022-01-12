@@ -74,13 +74,8 @@ train_enc=tokenizer.batch_encode_plus(train[['premise','hypothesis']].values.tol
 test_enc=tokenizer.batch_encode_plus(test[['premise','hypothesis']].values.tolist(),padding='max_length',max_length=100,truncation=True,return_attention_mask=True)
 
 # combine tokenization objects into training and test tensors
-# first time error:
-#     Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU.
-#     CUDA toolkit installation may require Visual Studio as well
-#     added to path
-#       C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\libnvvp;
-#       C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.5\bin;
-#     need to install cuDNN SDK 8.1.0, but it requires NVIDIA Developer Program Membership
+# first time this is run, it generates a message about existing devices
+# CUDA toolkit installation may require Visual Studio as well
 train_tf1=tf.convert_to_tensor(train_enc['input_ids'],dtype=tf.int32)
 train_tf2=tf.convert_to_tensor(train_enc['attention_mask'],dtype=tf.int32)
 train_input={'input_word_ids':train_tf1,'input_mask':train_tf2}
@@ -91,6 +86,10 @@ test_input={'input_word_ids':test_tf1,'input_mask':test_tf2}
 
 
 print(train_enc[100])
+
+
+# because error
+os.environ["TF_GPU_ALLOCATOR"] = "cuda_malloc_async"
 
 
 # QUESTION - what does strategy.scope() do?

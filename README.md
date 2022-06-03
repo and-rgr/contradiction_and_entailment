@@ -10,8 +10,8 @@ The code is based on the following notebook: [Detecting Contradictions and Entai
 We use the pretrained model **joeddav/xlm-roberta-large-xnli**, which is based on RoBERTa, itself an enhancement of the BERT transformer. We choose this model because it is fine tuned for natural language inference in multiple languages, which idealy suits this task.
 
 ### Dependencies 
-- transformers
-- sentencepiece
+- transformers, version 4.19.2
+- sentencepiece, version 0.1.96
 
 ### Libraries Used
 - datetime

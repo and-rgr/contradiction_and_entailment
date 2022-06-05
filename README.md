@@ -23,5 +23,8 @@ We use the pretrained model **joeddav/xlm-roberta-large-xnli**, which is based o
 ### Data Source
 Data is pulled from the **dataset.csv** file, and separated into training and validation sets during training.
 
+## Performance
+We achieve an accuracy of 0.9241 on the validation set, and a loss of 0.4533.
+
 ### Output
 After training, we save the model itself as an **.hdf5** file,, the training history as a **.csv** file, and the hyperparameters used as a **.txt** file.

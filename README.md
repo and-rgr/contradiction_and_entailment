@@ -21,7 +21,7 @@ We use the pretrained model **joeddav/xlm-roberta-large-xnli**, which is based o
 - sentencepiece
 
 ### Data Source
-Data is pulled from the **dataset.csv** file, and separated into training and validation sets during training.
+Data is pulled from the **dataset.csv** file, which is provided by the Kaggle competition, and separated into training and validation sets during training.
 
 ### Performance
 We achieve an accuracy of 0.9241 on the validation set, and a loss of 0.4533.
